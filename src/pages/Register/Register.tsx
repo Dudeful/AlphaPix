@@ -13,16 +13,15 @@ export const Register = () => {
       <img src="./src/assets/logo.svg" alt="" />
       <p>Crie sua conta</p>
       <form action="">
-        <InputRegister type="text" placeholder="Digite seu Nome" value="" />
+        <InputRegister type="text" placeholder="Digite seu Nome" />
         <InputRegister
           type="text"
           placeholder="Digite sua data de nascimento"
-          value=""
         />
-        <InputRegister type="text" placeholder="Digite seu CPF" value="" />
-        <InputRegister type="text" placeholder="Digite seu Email" value="" />
-        <InputRegister type="text" placeholder="Digite sua senha" value="" />
-        <InputRegister type="text" placeholder="Confirme sua senha" value="" />
+        <InputRegister type="text" placeholder="Digite seu CPF" />
+        <InputRegister type="email" placeholder="Digite seu Email" />
+        <InputRegister type="password" placeholder="Digite sua senha" />
+        <InputRegister type="password" placeholder="Confirme sua senha" />
         <Button type="button" onClick={handleRegister}>
           Cadastrar
         </Button>
