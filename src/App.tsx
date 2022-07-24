@@ -1,5 +1,5 @@
-import './styles/global.css';
+import { Routes } from './routes/Index';
 
 export const App = () => {
-  return <h1 className="font-brand text-btn-primary-base">Hello World!</h1>;
+  return <Routes />;
 };
