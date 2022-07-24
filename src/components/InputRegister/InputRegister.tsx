@@ -3,7 +3,7 @@ import './inputRegister.css';
 
 interface IInputRegisterProps {
   placeholder: string;
-  value: string;
+  value?: string;
   type?: string;
 }
 
