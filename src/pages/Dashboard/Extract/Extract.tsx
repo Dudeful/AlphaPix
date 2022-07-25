@@ -4,7 +4,7 @@ import './styles.css';
 export const Extract = () => {
   return (
     <div className="extract-div container">
-      <Dashboard>teste</Dashboard>
+      <Dashboard>Fulano</Dashboard>
     </div>
   );
 };
