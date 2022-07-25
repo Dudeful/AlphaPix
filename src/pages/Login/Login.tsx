@@ -1,16 +1,24 @@
 import { Link } from 'react-router-dom';
-import './login.css';
+import { Button, Input } from '../../components/atoms';
+import './styles.css';
 
 export const Login = () => {
+  const handleLogin = () => {
+    console.log('entrou');
+  };
+
   return (
-    <div className="login-page">
-      <h1>Login</h1>
-      <Link to={'/register'}>Registrar</Link>
-      <Link to={'/profile'}>Perfil</Link>
-      <Link to={'/extract'}>Dashboard - Extrato</Link>
-      <Link to={'/transf'}>Dashboard - Transferencia</Link>
-      <Link to={'/deposit'}>Dashboard - Depósito</Link>
-      <Link to={'/withdraw'}>Dashboard - Saque</Link>
+    <div className="login-page container">
+      <img className="logo" src="./src/assets/logo.svg" alt="" />
+      <p className="title">Login</p>
+      <form className="form" action="">
+        <Input placeholder="Digite seu CPF" type="text" />
+        <Input placeholder="Digite sua senha" type="password" />
+        <Button type="button" onClick={handleLogin}>
+          Entrar
+        </Button>
+      </form>
+      <Link to={'/register'}>Crie sua conta</Link>
     </div>
   );
 };

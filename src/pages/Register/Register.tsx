@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Button from '../../components/atoms/Button';
 import Input from '../../components/atoms/Input/index';
-import './register.css';
+import './styles.css';
 
 export const Register = () => {
   const handleRegister = () => {
