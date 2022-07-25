@@ -1,5 +1,5 @@
 import React from 'react'
-import './inputRegister.css'
+import './styles.css'
 
 interface IInputRegisterProps {
   placeholder: string
