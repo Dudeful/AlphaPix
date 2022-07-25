@@ -5,6 +5,7 @@ export const Extract = () => {
   return (
     <div className="extract-div container">
       <Dashboard>Fulano</Dashboard>
+      <p>Extract</p>
     </div>
   );
 };
