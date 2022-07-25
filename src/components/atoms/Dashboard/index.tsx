@@ -6,7 +6,7 @@ interface IDashboardProps {
 }
 
 const Dashboard: React.FC<IDashboardProps> = ({ children }) => {
-  return <div></div>;
+  return <div className="dashboard-div"></div>;
 };
 
 export default Dashboard;
