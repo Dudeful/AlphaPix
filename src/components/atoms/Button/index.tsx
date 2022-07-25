@@ -1,5 +1,5 @@
 import React from 'react';
-import './button.css';
+import './styles.css';
 
 interface IButtonProps {
   type?: 'button' | 'submit' | 'reset';
@@ -15,4 +15,4 @@ const Button: React.FC<IButtonProps> = ({ type, onClick, children }) => {
   );
 };
 
-export default Button
+export default Button;

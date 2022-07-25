@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Button } from '../../components/atoms/Button';
-import { InputRegister } from '../../components/atoms/Input/InputRegister';
+import Button from '../../components/atoms/Button';
+import Input from '../../components/atoms/Input/index';
 import './register.css';
 
 export const Register = () => {
@@ -13,15 +13,12 @@ export const Register = () => {
       <img src="./src/assets/logo.svg" alt="" />
       <p>Crie sua conta</p>
       <form action="">
-        <InputRegister type="text" placeholder="Digite seu Nome" />
-        <InputRegister
-          type="text"
-          placeholder="Digite sua data de nascimento"
-        />
-        <InputRegister type="text" placeholder="Digite seu CPF" />
-        <InputRegister type="email" placeholder="Digite seu Email" />
-        <InputRegister type="password" placeholder="Digite sua senha" />
-        <InputRegister type="password" placeholder="Confirme sua senha" />
+        <Input type="text" placeholder="Digite seu Nome" />
+        <Input type="text" placeholder="Digite sua data de nascimento" />
+        <Input type="text" placeholder="Digite seu CPF" />
+        <Input type="email" placeholder="Digite seu Email" />
+        <Input type="password" placeholder="Digite sua senha" />
+        <Input type="password" placeholder="Confirme sua senha" />
         <Button type="button" onClick={handleRegister}>
           Cadastrar
         </Button>
