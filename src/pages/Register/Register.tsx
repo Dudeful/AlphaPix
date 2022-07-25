@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Button } from '../../components/Button/Button';
-import { InputRegister } from '../../components/InputRegister/InputRegister';
+import { Button } from '../../components/atoms/Button';
+import { InputRegister } from '../../components/atoms/Input/InputRegister';
 import './register.css';
 
 export const Register = () => {
