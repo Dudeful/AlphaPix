@@ -1,6 +1,11 @@
 import { Link } from 'react-router-dom';
+<<<<<<< Updated upstream:src/pages/Register/Index.tsx
 import { Button } from '../../components/atoms';
 import { Input } from '../../components/atoms';
+=======
+import Button from '../../components/atoms/Button';
+import Input from '../../components/atoms/Input/index';
+>>>>>>> Stashed changes:src/pages/Register/Register.tsx
 import './styles.css';
 
 export const Register = () => {
