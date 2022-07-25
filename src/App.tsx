@@ -1,5 +1,7 @@
 import { Routes } from './routes/Index';
-import './styles/global.css'
+import './app.css';
+// import './styles/global.css';
+
 export const App = () => {
   return <Routes />;
 };
