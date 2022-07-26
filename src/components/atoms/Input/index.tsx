@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles.css';
 
 interface IInputRegisterProps {
   placeholder: string;
@@ -8,7 +7,14 @@ interface IInputRegisterProps {
 }
 
 const Input: React.FC<IInputRegisterProps> = ({ type, value, placeholder }) => {
-  return <input type={type} placeholder={placeholder} value={value} />;
+  return (
+    <input
+      className="w-full h-8 p-2.5 rounded-md text-base font-normal border border-solid border-neutral-300"
+      type={type}
+      placeholder={placeholder}
+      value={value}
+    />
+  );
 };
 
 export default Input;
