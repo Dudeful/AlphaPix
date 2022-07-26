@@ -3,6 +3,18 @@ module.exports = {
   purge: ['./src/**/*.tsx'],
   theme: {
     extend: {
+      maxWidth: {
+        sm: '360px',
+      },
+      maxHeight: {
+        sm: '640px',
+      },
+      width: {
+        sm: '360px',
+      },
+      height: {
+        sm: '640px',
+      },
       fontFamily: {
         brand: ['Inter'],
       },
