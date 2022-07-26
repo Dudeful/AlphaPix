@@ -7,13 +7,7 @@ interface IDashboardProps {
 }
 
 const Dashboard: React.FC<IDashboardProps> = ({ children }) => {
-  let value = '';
-
-  const handleClickValue = () => {
-    const el = document.querySelector('.value')?.innerHTML;
-    if (el !== '') {
-    }
-  };
+  const handleClickValue = () => {};
 
   return (
     <div className="dashboard-div">
