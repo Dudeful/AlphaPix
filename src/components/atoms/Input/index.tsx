@@ -5,6 +5,7 @@ interface IInputRegisterProps {
 	placeholder: string;
 	value?: string;
 	type?: string;
+	onChange: (e: React.FormEvent<HTMLInputElement>) => void
 }
 
 const Input: React.FC<IInputRegisterProps> = ({ type, value, placeholder }) => {
