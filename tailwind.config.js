@@ -15,6 +15,9 @@ module.exports = {
       height: {
         sm: '640px',
       },
+      minHeight: {
+        min: '640px',
+      },
       fontFamily: {
         brand: ['Inter'],
       },
