@@ -4,12 +4,13 @@ import './styles.css';
 interface IButtonProps {
   type?: 'button' | 'submit' | 'reset';
   children: React.ReactNode;
+  classNames?: string;
   onClick: () => void;
 }
 
-const Button: React.FC<IButtonProps> = ({ type, onClick, children }) => {
+const Button: React.FC<IButtonProps> = ({ type, onClick, children, classNames }) => {
   return (
-    <button type={type} onClick={onClick}>
+    <button className={classNames} type={type} onClick={onClick}>
       {children}
     </button>
   );

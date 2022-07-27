@@ -15,7 +15,8 @@ export const Login = () => {
         <Input placeholder="Digite seu CPF" type="text" />
         <Input placeholder="Digite sua senha" type="password" />
         <Button type="button" onClick={handleLogin}>
-          Entrar
+          {/* Entrar */}
+          <Link to={'/transaction'}>Entrar</Link>
         </Button>
       </form>
       <Link to={'/register'}>Crie sua conta</Link>

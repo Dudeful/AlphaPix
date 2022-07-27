@@ -1,18 +1,30 @@
-import React from 'react'
-import './styles.css'
+import React from 'react';
+import './styles.css';
 
 interface IInputRegisterProps {
-  placeholder: string
-  value?: string
-  type?: string
+  classNames?: string;
+  placeholder?: string;
+  value?: string;
+  type?: string;
+  readOnly?: boolean;
 }
 
- const Input: React.FC<IInputRegisterProps> = ({
+const Input: React.FC<IInputRegisterProps> = ({
   type,
   value,
   placeholder,
+  classNames,
+  readOnly,
 }) => {
-  return <input type={type} placeholder={placeholder} value={value} />
+  return (
+    <input
+      className={classNames}
+      type={type}
+      placeholder={placeholder}
+      value={value}
+      readOnly={readOnly}
+    />
+  );
 };
 
-export default Input
+export default Input;
