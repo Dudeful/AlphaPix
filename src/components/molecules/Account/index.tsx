@@ -23,8 +23,8 @@ const Account: React.FC<UserData & Titles> = ({
 }) => {
 	return (
 		<div>
-			{title}
-			{subTitle}
+			<h1>{title}</h1>
+			<h3>{subTitle}</h3>
 			<Input placeholder="conta"  inputHandler={setAccountNumber} />
 			<Input placeholder="agência" inputHandler={setAgency} />
 			<Button onClick={makeDeposit}>Depositar</Button>

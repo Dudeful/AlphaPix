@@ -5,12 +5,10 @@ const DepositDashboard = DashboardHoc(Account)
 
 export const Deposit:React.FC = () => {
 
-
-  
-
   return (
     <DepositDashboard
-
+    subTitle='batata'
+    title='cafe'
     />
   )
 }

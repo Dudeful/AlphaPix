@@ -7,7 +7,7 @@ interface IInputRegisterProps {
 	inputHandler: (e: React.FormEvent<HTMLInputElement>) => void
 }
 
-const Input: React.FC<IInputRegisterProps> = ({ type, placeholder, inputHandler }) => {
+const Input: React.FC<IInputRegisterProps> = ({ type, placeholder, inputHandler}) => {
 	return <input type={type} 
 	placeholder={placeholder}
 	onInput={inputHandler}

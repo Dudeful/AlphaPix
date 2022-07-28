@@ -3,7 +3,7 @@ import { DepositDashboardType } from '../../../@types/hocs';
 
 
 function DashboardHoc<T>(Component: ComponentType<T>) {
-  return( hocProps: Omit< T, ""> ) => {
+  return( hocProps: T ) => {
       const [agency, setAgency] = useState('')
       const [accountNumber, setAccountNumber] = useState('')
 
