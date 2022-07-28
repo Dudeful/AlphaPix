@@ -5,13 +5,13 @@ import {
   Navigate,
 } from 'react-router-dom';
 
-import { Deposit } from '../pages/Dashboard/Deposit/Deposit'
-import { Extract } from '../pages/Dashboard/Extract/Extract'
-import { Transf } from '../pages/Dashboard/Transf/Transf'
-import { Withdraw } from '../pages/Dashboard/Withdraw/Withdraw'
-import { Login } from '../pages/Login/Login'
-import { Profile } from '../pages/Profile/Profile'
-import { Register } from '../pages/Register/Index'
+import { Deposit } from '../pages/Dashboard/Deposit/Deposit';
+import { Extract } from '../pages/Dashboard/Extract/Extract';
+import { Transf } from '../pages/Dashboard/Transf/Transf';
+import { Withdraw } from '../pages/Dashboard/Withdraw/Withdraw';
+import { Login } from '../pages/Login/Index';
+import { Profile } from '../pages/Profile/Index';
+import { Register } from '../pages/Register/Index';
 
 export const Routes = () => {
   return (
