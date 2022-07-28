@@ -5,8 +5,8 @@ import { Button } from '../../atoms';
 interface UserData {
 	agency?: string;
 	accountNumber?: string;
-	getAccountNumber: (e: React.FormEvent<HTMLInputElement>) => void;
-	getAgency: (e: React.FormEvent<HTMLInputElement>) => void;
+	setAccountNumber: (e: React.FormEvent<HTMLInputElement>) => void;
+	setAgency: (e: React.FormEvent<HTMLInputElement>) => void;
 	makeDeposit: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 interface Titles {
@@ -15,20 +15,18 @@ interface Titles {
 }
 
 const Account: React.FC<UserData & Titles> = ({
-	accountNumber,
-	agency,
 	title,
 	subTitle,
-	getAccountNumber,
-	getAgency,
+	setAccountNumber,
+	setAgency,
 	makeDeposit,
 }) => {
 	return (
 		<div>
 			{title}
 			{subTitle}
-			<Input placeholder="" value={accountNumber} onChange={getAccountNumber} />
-			<Input placeholder="" value={agency} onChange={getAgency} />
+			<Input placeholder="conta"  inputHandler={setAccountNumber} />
+			<Input placeholder="agência" inputHandler={setAgency} />
 			<Button onClick={makeDeposit}>Depositar</Button>
 		</div>
 	);

@@ -3,13 +3,15 @@ import './styles.css';
 
 interface IInputRegisterProps {
 	placeholder: string;
-	value?: string;
 	type?: string;
-	onChange: (e: React.FormEvent<HTMLInputElement>) => void
+	inputHandler: (e: React.FormEvent<HTMLInputElement>) => void
 }
 
-const Input: React.FC<IInputRegisterProps> = ({ type, value, placeholder }) => {
-	return <input type={type} placeholder={placeholder} value={value} />;
+const Input: React.FC<IInputRegisterProps> = ({ type, placeholder, inputHandler }) => {
+	return <input type={type} 
+	placeholder={placeholder}
+	onInput={inputHandler}
+	/>;
 };
 
 export default Input;

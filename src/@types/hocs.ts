@@ -3,7 +3,7 @@ export interface  DepositDashboardType {
 	agency: string
 	title: string
 	subTitle: string
-	getAccountNumber: (e: React.FormEvent<HTMLInputElement>) => void;
-	getAgency: (e: React.FormEvent<HTMLInputElement>) => void;
+	setAccountNumber: (e: React.FormEvent<HTMLInputElement>) => void;
+	setAgency: (e: React.FormEvent<HTMLInputElement>) => void;
 	makeDeposit: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
