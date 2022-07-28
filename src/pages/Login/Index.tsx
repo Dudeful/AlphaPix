@@ -7,7 +7,7 @@ export const Login = () => {
   };
 
   return (
-    <div className="bg-body-light-200 w-sm h-sm flex flex-col justify-start items-center mx-auto my-5 min-h-min">
+    <div className="bg-body-light-200 w-sm h-sm flex flex-col justify-start items-center mx-auto my-6 min-h-min">
       <img className="w-32 h-fit mt-20" src="./src/assets/logo.svg" alt="" />
       <p className="mt-12 mb-3 text-xl font-medium text-paragraph-dark">
         Login
@@ -19,7 +19,10 @@ export const Login = () => {
           Entrar
         </Button>
       </form>
-      <Link className="font-normal text-sm" to={'/register'}>
+      <Link
+        className="font-normal text-sm text-paragraph-dark"
+        to={'/register'}
+      >
         Crie sua conta
       </Link>
     </div>
