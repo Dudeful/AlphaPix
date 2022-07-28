@@ -1,8 +1,23 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  purge: ['./src/**/*.tsx'],
+  content: ['./src/**/*.tsx'],
   theme: {
     extend: {
+      maxWidth: {
+        sm: '360px',
+      },
+      maxHeight: {
+        sm: '640px',
+      },
+      width: {
+        sm: '360px',
+      },
+      height: {
+        sm: '640px',
+      },
+      minHeight: {
+        min: '640px',
+      },
       fontFamily: {
         brand: ['Inter'],
       },

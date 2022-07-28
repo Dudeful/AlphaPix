@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../components/atoms/Button';
 import Input from '../../components/atoms/Input/index';
-import './styles.css';
 
 export const Register = () => {
   const handleRegister = () => {
@@ -10,10 +9,15 @@ export const Register = () => {
   };
 
   return (
-    <div className="register-div container">
-      <img src="./src/assets/logo.svg" alt="" />
-      <p>Crie sua conta</p>
-      <form action="">
+    <div className="bg-body-light-200 w-sm h-sm flex flex-col justify-start items-center mx-auto my-6 min-h-min">
+      <img src="./src/assets/logo.svg" alt="" className="w-[100px] mt-[38px]" />
+      <p className="mt-[10px] text-[20px] font-medium text-paragraph-dark">
+        Crie sua conta
+      </p>
+      <form
+        action=""
+        className="w-[250px] flex items-center gap-[20px] flex-col my-[10px]"
+      >
         <Input type="text" placeholder="Digite seu Nome" />
         <Input type="text" placeholder="Digite sua data de nascimento" />
         <Input type="text" placeholder="Digite seu CPF" />
@@ -24,7 +28,12 @@ export const Register = () => {
           Cadastrar
         </Button>
       </form>
-      <Link to={'/login'}>Entrar</Link>
+      <Link
+        className="font-normal text-[14px] text-paragraph-dark"
+        to={'/login'}
+      >
+        Entrar
+      </Link>
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles.css';
 
 interface IButtonProps {
   type?: 'button' | 'submit' | 'reset';
@@ -10,7 +9,11 @@ interface IButtonProps {
 
 const Button: React.FC<IButtonProps> = ({ type, onClick, children, classNames }) => {
   return (
-    <button className={classNames} type={type} onClick={onClick}>
+    <button
+      className="w-full p-2.5 bg-btn-primary-base border-0 font-normal text-lg text-white rounded-md"
+      type={type}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

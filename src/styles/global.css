@@ -3,19 +3,19 @@
 @tailwind utilities;
 
 * {
-  @apply m-0 p-0 box-border outline-none;
+  @apply m-0 p-0 box-border outline-none font-brand;
 }
 
 html {
-  @apply w-screen h-screen leading-none;
+  @apply w-screen leading-none;
 }
 
 body {
-  @apply w-screen h-screen flex flex-col justify-center items-center text-base overflow-x-hidden;
+  @apply w-screen flex flex-col justify-center items-center text-base overflow-x-hidden;
 }
 
 #root {
-  @apply w-screen h-screen flex flex-col justify-center items-center bg-white dark:bg-black;
+  @apply w-screen flex flex-col justify-center items-center bg-white dark:bg-black;
 }
 
 ul {
