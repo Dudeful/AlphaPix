@@ -1,1 +1,2 @@
-export { default as Transaction } from './Transaction/Transaction'
+export { default as DashboardHoc } from './DashboardHoc'
+

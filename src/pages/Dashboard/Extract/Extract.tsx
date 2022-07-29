@@ -1,10 +1,12 @@
-import Dashboard from '../../../components/atoms/Dashboard';
+import { DashboardHoc } from '../../../components/organisms';
+import { Account } from '../../../components/molecules/Account';
 
-export const Extract = () => {
-  return (
-    <div className="bg-body-light-200 w-sm h-sm flex flex-col justify-start items-center mx-auto my-6 min-h-min">
-      <Dashboard>Fulano</Dashboard>
-      <p>Extract</p>
-    </div>
-  );
+const DashboardExtract = DashboardHoc(Account);
+
+export const Extract: React.FC = () => {
+	return (
+		<div className="bg-body-light-200 w-sm h-sm flex flex-col justify-start items-center mx-auto my-6 min-h-min">
+			<DashboardExtract />
+		</div>
+	);
 };

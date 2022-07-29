@@ -1,1 +1,1 @@
-export { default as AccountData } from './AccountData'
+export { Account as default } from './Account/'
