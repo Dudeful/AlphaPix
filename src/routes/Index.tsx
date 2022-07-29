@@ -1,9 +1,4 @@
-import {
-  BrowserRouter,
-  Routes as Switch,
-  Route,
-  Navigate,
-} from 'react-router-dom';
+import { BrowserRouter, Routes as Switch, Route, Navigate } from 'react-router-dom';
 
 import { Deposit } from '../pages/Dashboard/Deposit/Deposit';
 import { Extract } from '../pages/Dashboard/Extract/Extract';

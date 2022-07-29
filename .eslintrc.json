@@ -29,7 +29,6 @@
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "single"],
     "semi": ["error", "never"],
-    "react/react-in-jsx-scope": "off",
     "formatOnSave": true,
     "@typescript-eslint/semi": ["error"]
   }
