@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 
 export const Profile = () => {
 	return (
-		<div className="bg-body-light-200 w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min">
+		<div className="bg-body-light-200 w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
 			<div className="bg-brand-base w-[360px] h-[207px] rounded-b-[25px]">
 				<div className="ml-[23px] mt-[21px]">
 					<Link to={'/extract'}>

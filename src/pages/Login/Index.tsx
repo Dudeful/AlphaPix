@@ -7,7 +7,7 @@ export const Login = () => {
 	};
 
 	return (
-		<div className="bg-body-light-200 w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min">
+		<div className="bg-body-light-200 w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
 			<img className="w-32 h-fit mt-20" src="./src/assets/logo.svg" alt="" />
 			<p className="mt-12 mb-3 text-xl font-medium text-paragraph-dark">
 				Login
