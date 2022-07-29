@@ -57,7 +57,7 @@ export const Extract: React.FC = () => {
 	}, []);
 
 	return (
-		<div className="bg-body-light-200 w-sm h-lg pb-7 flex flex-col justify-start items-center mx-auto min-h-min">
+		<div className="bg-body-light-200 w-sm h-lg pb-7 flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
 			<DashboardExtract children={'Cheetan'} />
 
 			<div className="bg-white px-[15px] py-[12px] gap-25 flex-col items-center w-[314px] mt-10 rounded-[8px]">

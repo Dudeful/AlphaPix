@@ -9,7 +9,7 @@ export const Register = () => {
 	};
 
 	return (
-		<div className="bg-body-light-200 w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min">
+		<div className="bg-body-light-200 w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
 			<img src="./src/assets/logo.svg" alt="" className="w-[100px] mt-[38px]" />
 			<p className="mt-[10px] text-[20px] font-medium text-paragraph-dark">
 				Crie sua conta
