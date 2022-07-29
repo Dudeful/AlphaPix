@@ -9,9 +9,9 @@ export const Register = () => {
 	};
 
 	return (
-		<div className="bg-body-light-200 w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
+		<div className="bg-body-light-200 dark:bg-body-dark w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
 			<img src="./src/assets/logo.svg" alt="" className="w-[100px] mt-[38px]" />
-			<p className="mt-[10px] text-[20px] font-medium text-paragraph-dark">
+			<p className="mt-[10px] text-[20px] font-medium text-paragraph-dark dark:text-btn-text">
 				Crie sua conta
 			</p>
 			<form
@@ -29,7 +29,7 @@ export const Register = () => {
 				</Button>
 			</form>
 			<Link
-				className="font-normal text-[14px] text-paragraph-dark"
+				className="font-normal text-[14px] text-paragraph-dark dark:text-paragraph-light-100"
 				to={'/login'}
 			>
 				Entrar
