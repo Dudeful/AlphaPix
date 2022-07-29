@@ -57,17 +57,17 @@ export const Extract: React.FC = () => {
 	}, []);
 
 	return (
-		<div className="bg-body-light-200 w-sm h-lg pb-7 flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
+		<div className="bg-body-light-200 dark:bg-body-dark w-sm h-lg pb-7 flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
 			<DashboardExtract children={'Cheetan'} />
 
-			<div className="bg-white px-[15px] py-[12px] gap-25 flex-col items-center w-[314px] mt-10 rounded-[8px]">
+			<div className="bg-white dark:bg-body-dark px-[15px] py-[12px] gap-25 flex-col items-center w-[314px] mt-10 rounded-[8px] dark:border dark:border-solid dark:border-btn-secondary-base">
 				<div className="flex">
 					<img src="src/assets/statement-icon.svg" alt="bank_icon" />
 					<h3 className="ml-2 font-medium flex text-base items-center font-[Inter] text-[#C98E26]">
 						Extrato de transações
 					</h3>
 				</div>
-				<div className="bg-[#F3F9F9] p-[5px] w-[284px] rounded-[4px] mt-[20px]">
+				<div className="bg-[#F3F9F9] dark:bg-body-dark p-[5px] w-[284px] rounded-[4px] mt-[20px]">
 					{statement.transactions.map((group: any) => {
 						return (
 							<div className="mb-[20px]">
