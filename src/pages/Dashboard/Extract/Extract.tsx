@@ -71,7 +71,7 @@ export const Extract: React.FC = () => {
 					{statement.transactions.map((group: any) => {
 						return (
 							<div className="mb-[20px]">
-								<h3 className="mb-[-15px] font-medium text-[#727272]">
+								<h3 className="mb-[-16px] font-medium text-[#727272]">
 									{group.date}
 								</h3>
 								<DailyStatement

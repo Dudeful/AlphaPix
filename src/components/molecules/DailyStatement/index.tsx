@@ -16,9 +16,9 @@ const DailyStatement: React.FC<IStatementProps> = (statement) => {
 					return (
 						<div
 							key={transaction.id}
-							className="text-[#A8A8A8] flex justify-between"
+							className="px-[7px] text-[#A8A8A8] flex justify-between"
 						>
-							<h5 className="ml-[7px] font-medium">Transferência enviada</h5>
+							<h5 className="font-medium">Transferência enviada</h5>
 							<h5 className="text-[#FF5959] font-bold">
 								- ${transaction.amount}
 							</h5>
@@ -28,9 +28,9 @@ const DailyStatement: React.FC<IStatementProps> = (statement) => {
 					return (
 						<div
 							key={transaction.id}
-							className="text-[#A8A8A8] flex justify-between"
+							className="px-[7px] text-[#A8A8A8] flex justify-between"
 						>
-							<h5 className="ml-[7px] font-medium">Transferência recebida</h5>
+							<h5 className="font-medium">Transferência recebida</h5>
 							<h5 className="text-[#53D496] font-bold">
 								+ ${transaction.amount}
 							</h5>
@@ -40,9 +40,9 @@ const DailyStatement: React.FC<IStatementProps> = (statement) => {
 					return (
 						<div
 							key={transaction.id}
-							className="text-[#A8A8A8] flex justify-between"
+							className="px-[7px] text-[#A8A8A8] flex justify-between"
 						>
-							<h5 className="ml-[7px] font-medium">Saque</h5>
+							<h5 className="font-medium">Saque</h5>
 							<h5 className="text-[#FF5959] font-bold">
 								- ${transaction.amount}
 							</h5>
@@ -52,9 +52,9 @@ const DailyStatement: React.FC<IStatementProps> = (statement) => {
 					return (
 						<div
 							key={transaction.id}
-							className="text-[#A8A8A8] flex justify-between"
+							className="px-[7px] text-[#A8A8A8] flex justify-between"
 						>
-							<h5 className="ml-[7px] font-medium">Depósito</h5>
+							<h5 className="font-medium">Depósito</h5>
 							<h5 className="text-[#53D496] font-bold">
 								+ ${transaction.amount}
 							</h5>
