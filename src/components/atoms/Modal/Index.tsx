@@ -4,9 +4,10 @@ import Button from '../Button';
 interface IModalProps {
 	close?: boolean;
 	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+	showModal: boolean
 }
 
-const Modal: React.FC<IModalProps> = ({ close = false, onClick }) => {
+const Modal: React.FC<IModalProps> = ({ close = false, onClick, showModal }) => {
 	const [isActive, setIsActive] = useState(close);
 
 	const handleClose = () => {
@@ -14,6 +15,9 @@ const Modal: React.FC<IModalProps> = ({ close = false, onClick }) => {
 	};
 
 	return (
+		<>
+		{
+		showModal ?
 		<div
 			className={`${
 				isActive ? 'hidden' : 'flex flex-col'
@@ -40,6 +44,8 @@ const Modal: React.FC<IModalProps> = ({ close = false, onClick }) => {
 				<Button className="bg-btn-primary-base w-[108px]">Confirmar</Button>
 			</div>
 		</div>
+		 : <></> } 
+		</>
 	);
 };
 
