@@ -10,6 +10,7 @@ export const Transf = () => {
 		console.log('entrou');
 		setIsActive((current) => !current);
 	};
+	const handleCloseModal = () => {setIsActive((current) => !current)}
 
 	return (
 		<div className="bg-body-light-200 dark:bg-body-dark w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
@@ -82,7 +83,7 @@ export const Transf = () => {
 					</Button>
 				</div>
 			</div>
-			<Modal showModal={isActive}></Modal>
+			<Modal showModal={isActive} handleClose={handleCloseModal}></Modal>
 		</div>
 	);
 };

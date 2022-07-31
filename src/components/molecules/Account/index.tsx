@@ -31,7 +31,6 @@ const Account: React.FC<UserData & Titles> = ({
 			<Input placeholder="conta"  inputHandler={setAccountNumber} />
 			<Input placeholder="agência" inputHandler={setAgency} />
 			<Button onClick={clickHandler}>Depositar</Button>
-			<Modal showModal={showModal} handleClose={clickHandler}></Modal>
 		</div>
 	);
 };
