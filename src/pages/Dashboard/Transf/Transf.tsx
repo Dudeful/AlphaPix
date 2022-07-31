@@ -14,14 +14,14 @@ export const Transf = () => {
 	return (
 		<div className="bg-body-light-200 dark:bg-body-dark w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
 			<Dashboard>Fulano</Dashboard>
-			<div className="w-[280px] h-[384] py-[12px] px-[15px] rounded-[8px] bg-white flex flex-col dark:border dark:border-solid dark:border-btn-secondary-base">
+			<div className="w-[280px] h-[384] py-[12px] px-[15px] rounded-[8px] bg-white flex flex-col dark:border dark:border-solid dark:border-btn-secondary-base dark:bg-body-dark">
 				<div className="flex flex-row gap-[10px]">
 					<img src="../src/assets/transj-gold.svg" alt="" />
 					<p className="text-header-gold font-medium text-[16px]">
 						Transferência
 					</p>
 				</div>
-				<p className="font-normal text-[16px] text-paragraph-dark leading-none mt-[15px]">
+				<p className="font-normal text-[16px] text-paragraph-dark leading-none mt-[15px] dark:text-btn-text">
 					Origem
 				</p>
 				<div className="flex flex-row mt-[10px] gap-[30px]">
@@ -44,7 +44,7 @@ export const Transf = () => {
 						</p>
 					</div>
 				</div>
-				<p className="font-normal text-[16px] text-paragraph-dark leading-none mt-[15px]">
+				<p className="font-normal text-[16px] text-paragraph-dark leading-none mt-[15px] dark:text-btn-text">
 					Destino
 				</p>
 				<div className="flex flex-row mt-[10px] gap-[30px] justify-start">
