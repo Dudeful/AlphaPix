@@ -72,7 +72,7 @@ const Dashboard: React.FC<IDashboardProps> = ({ children }) => {
 					</p>
 				</div>
 			</div>
-			<div className="w-[285px] h-[73px] bg-white shadow-inner rounded-[10px] my-[0px] mx-auto p-[8px]">
+			<div className="w-[285px] h-[73px] bg-white shadow-md rounded-[10px] my-[0px] mx-auto p-[8px]">
 				<div className="text-header-gold text-[14px] font-medium flex flex-row justify-between my-0 mx-[17px]">
 					<p className="m-0">Agência: 1510-5</p>
 					<p className="m-0">Conta: 95785-3</p>
