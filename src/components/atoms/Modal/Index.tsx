@@ -2,21 +2,16 @@ import React, { useState } from 'react';
 import Button from '../Button';
 
 interface IModalProps {
-	handleClose: () => void
+	handleClose: () => void;
 	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 	showModal: boolean;
 }
 
-const Modal: React.FC<IModalProps> = ({
-	handleClose,
-	showModal,
-}) => {
+const Modal: React.FC<IModalProps> = ({ handleClose, showModal }) => {
 	return (
 		<>
 			{showModal ? (
-				<div
-					className="flex flex-col first-letter:w-sm h-[202px] inset-x-auto top-auto bg-white bottom-[-78px] absolute rounded-t-[25px] justify-between p-[20px] z-10"
-				>
+				<div className="flex flex-col w-sm h-[202px] inset-x-auto bg-white bottom-0 fixed rounded-t-[25px] justify-between p-[20px] z-9999">
 					<div className="flex flex-row justify-between">
 						<p className="text-[20px] font-normal">Confirmar transação</p>
 						<img
