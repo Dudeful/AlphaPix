@@ -2,29 +2,20 @@ import React, { useState } from 'react';
 import Button from '../Button';
 
 interface IModalProps {
-	close?: boolean;
+	handleClose: () => void
 	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 	showModal: boolean;
 }
 
 const Modal: React.FC<IModalProps> = ({
-	close = false,
-	onClick,
+	handleClose,
 	showModal,
 }) => {
-	const [isActive, setIsActive] = useState(close);
-
-	const handleClose = () => {
-		setIsActive((current) => !current);
-	};
-
 	return (
 		<>
 			{showModal ? (
 				<div
-					className={`${
-						isActive ? 'hidden' : 'flex flex-col'
-					} w-sm h-[202px] inset-x-auto top-auto bg-white bottom-[-78px] absolute rounded-t-[25px] justify-between p-[20px] z-10`}
+					className="flex flex-col first-letter:w-sm h-[202px] inset-x-auto top-auto bg-white bottom-[-78px] absolute rounded-t-[25px] justify-between p-[20px] z-10"
 				>
 					<div className="flex flex-row justify-between">
 						<p className="text-[20px] font-normal">Confirmar transação</p>

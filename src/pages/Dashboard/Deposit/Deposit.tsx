@@ -13,7 +13,6 @@ export const Deposit: React.FC = () => {
 		<div className="bg-body-light-200 dark:bg-body-dark w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
 			<Dashboard>Fulano</Dashboard>
 			<DepositDashboard />
-			<Modal></Modal>
 		</div>
 	);
 };
