@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Input } from '../../atoms';
 import { Button } from '../../atoms';
+import Modal from '../../atoms/Modal/Index';
 
 interface UserData {
 	agency?: string;
 	accountNumber?: string;
 	setAccountNumber: (e: React.FormEvent<HTMLInputElement>) => void;
 	setAgency: (e: React.FormEvent<HTMLInputElement>) => void;
-	makeDeposit: (e: React.MouseEvent<HTMLButtonElement>) => void;
+	clickHandler: (e: React.MouseEvent<HTMLButtonElement>) => void;
 }
 interface Titles {
 	title?: string;
@@ -19,15 +20,17 @@ const Account: React.FC<UserData & Titles> = ({
 	subTitle,
 	setAccountNumber,
 	setAgency,
-	makeDeposit,
 }) => {
+	const [showModal, setShowModal] = useState(false)
+	const clickHandler= () => setShowModal(prev => !prev)
+
 	return (
 		<div>
 			<h1>{title}</h1>
 			<h3>{subTitle}</h3>
 			<Input placeholder="conta"  inputHandler={setAccountNumber} />
 			<Input placeholder="agência" inputHandler={setAgency} />
-			<Button onClick={makeDeposit}>Depositar</Button>
+			<Button onClick={clickHandler}>Depositar</Button>
 		</div>
 	);
 };
