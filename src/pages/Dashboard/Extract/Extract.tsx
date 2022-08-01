@@ -21,8 +21,7 @@ export const Extract: React.FC = () => {
 		axios
 			.get(
 				'http://gcp.dudeful.com:5000/statements?all=true&branch=0001&account=80258956-1&password=hellofriend'
-				// 'http://gcp.dudeful.com:5000/statements?all=true&branch=0001&account=84820318-6&password=edtech123'
-				// 'http://gcp.dudeful.com:5000/statements?all=true&branch=0001&account=11710173-7&password=edtech123'
+				// 'http://gcp.dudeful.com:5000/statements?all=true&branch=0001&account=29904692-3&password=edtech123'
 			)
 			.then((res) => {
 				const dateGroups = res.data.transactions.reduce(
@@ -70,7 +69,7 @@ export const Extract: React.FC = () => {
 				<div className="bg-[#F3F9F9] p-[5px] w-[284px] rounded-[4px] mt-[20px]">
 					{statement.transactions.map((group: any) => {
 						return (
-							<div className="mb-[20px]">
+							<div key={group.date} className="mb-[20px]">
 								<h3 className="mb-[-16px] font-medium text-[#727272]">
 									{group.date}
 								</h3>

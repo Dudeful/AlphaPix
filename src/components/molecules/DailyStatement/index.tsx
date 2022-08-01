@@ -11,7 +11,7 @@ const DailyStatement: React.FC<IStatementProps> = (statement) => {
 			{statement.group.transactions.map((transaction: any) => {
 				if (
 					transaction.type === 'acc_transfer' &&
-					transaction.creadit_part === statement.account_details.holder
+					transaction.debit_part === statement.account_details.holder
 				) {
 					return (
 						<div
