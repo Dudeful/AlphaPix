@@ -1,5 +1,4 @@
 import { FormEvent, useState } from 'react';
-import axios from 'axios';
 import { Button, Input } from '../../../components/atoms';
 import Dashboard from '../../../components/atoms/Dashboard';
 import Modal from '../../../components/atoms/Modal/Index';
@@ -25,8 +24,14 @@ export const Transf = () => {
 
 		console.log(data);
 
-		axios
-			.post('http://gcp.dudeful.com:5000/register-transfer', { data })
+		const options = {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ data }),
+		};
+
+		fetch('http://gcp.dudeful.com:5000/register-transfer', options)
+			.then((res) => res.json())
 			.then((res) => {
 				console.log(res.data);
 			})

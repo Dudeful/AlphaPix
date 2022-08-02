@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 interface IDashboardProps {
 	children: React.ReactNode;
+	type?: string;
 }
 
-const Dashboard: React.FC<IDashboardProps> = ({ children }) => {
-	const handleClickValue = () => {};
+const Dashboard: React.FC<IDashboardProps> = ({ children, type = 'text' }) => {
+	const [inputType, setInputType] = useState('text');
+
+	const handleClickHiddenValue = () => {
+		if (inputType === 'text') {
+			setInputType('password');
+		} else {
+			setInputType('text');
+		}
+	};
 
 	return (
 		<div className="w-[360px] h-[207px] text-white bg-brand-base rounded-b-[25px] mb-[40px]">
@@ -80,14 +89,17 @@ const Dashboard: React.FC<IDashboardProps> = ({ children }) => {
 				</div>
 				<div className="flex flex-row justify-start gap-[6px] my-[10px] mx-[17px]">
 					<img
-						className="w-[14px] h-[9px] my-auto"
+						className="w-[14px] h-[9px] my-auto cursor-pointer"
 						src="./src/assets/eye.svg"
 						alt="image eye"
-						onClick={handleClickValue}
+						onClick={handleClickHiddenValue}
 					/>
-					<p className="text-brand-base text-[24px] font-bold mt-auto mb-0 mx-0">
-						132.759,30
-					</p>
+					<input
+						type={inputType}
+						className="w-[130px] text-brand-base text-[24px] font-bold mt-auto mb-0 mx-0"
+						value={'132.759,30'}
+						onChange={() => console.log('')}
+					></input>
 					<span className="text-brand-hover font-[14px] leading-none font-bold mt-auto mb-[2px] mx-0">
 						R$
 					</span>

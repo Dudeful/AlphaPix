@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { DashboardHoc } from '../../../components/organisms';
 import { Dashboard } from '../../../components/atoms';
 import { DailyStatement } from '../../../components/molecules';
@@ -18,20 +17,19 @@ export const Extract: React.FC = () => {
 	});
 
 	useEffect(() => {
-		axios
-			.get(
-				'http://gcp.dudeful.com:5000/statements?all=true&branch=0001&account=80258956-1&password=hellofriend'
-				// 'http://gcp.dudeful.com:5000/statements?all=true&branch=0001&account=29904692-3&password=edtech123'
-			)
-			.then((res) => {
-				const dateGroups = res.data.transactions.reduce(
-					(dateGroups: any, transaction: any) => {
+		fetch(
+			'http://gcp.dudeful.com:5000/statements?all=true&branch=0001&account=80258956-1&password=hellofriend'
+		)
+			.then((res) => res.json())
+			.then((data) => {
+				const dateGroups = data.transactions.reduce(
+					(dateGroup: any, transaction: any) => {
 						const date = transaction.date.split('T')[0];
-						if (!dateGroups[date]) {
-							dateGroups[date] = [];
+						if (!dateGroup[date]) {
+							dateGroup[date] = [];
 						}
-						dateGroups[date].push(transaction);
-						return dateGroups;
+						dateGroup[date].push(transaction);
+						return dateGroup;
 					},
 					{}
 				);
@@ -45,11 +43,11 @@ export const Extract: React.FC = () => {
 
 				setStatement({
 					transactions,
-					account_details: res.data.account_details,
+					account_details: data.account_details,
 				});
 				console.log({
 					transactions,
-					account_details: res.data.account_details,
+					account_details: data.account_details,
 				});
 			})
 			.catch((error) => console.error(error.message));
