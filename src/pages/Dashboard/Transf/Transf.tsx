@@ -7,10 +7,42 @@ export const Transf = () => {
 	const [isActive, setIsActive] = useState(false);
 
 	const handleTransfer = () => {
-		console.log('entrou');
+		const data = {
+			origin: {
+				branch: (document.getElementById('o_branch') as HTMLInputElement).value,
+				account: (document.getElementById('o_account') as HTMLInputElement)
+					.value,
+			},
+			destination: {
+				branch: (document.getElementById('d_branch') as HTMLInputElement).value,
+				account: (document.getElementById('d_account') as HTMLInputElement)
+					.value,
+			},
+			amount: (document.getElementById('amount') as HTMLInputElement).value,
+			password: (document.getElementById('password') as HTMLInputElement).value,
+		};
+
+		console.log(data);
+
+		const options = {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify({ data }),
+		};
+
+		fetch('http://gcp.dudeful.com:5000/register-transfer', options)
+			.then((res) => res.json())
+			.then((res) => {
+				console.log(res.data);
+			})
+			.catch((error) => console.error(error));
+
+		// setIsActive((current) => !current);
+	};
+
+	const handleCloseModal = () => {
 		setIsActive((current) => !current);
 	};
-	const handleCloseModal = () => {setIsActive((current) => !current)}
 
 	return (
 		<div className="bg-body-light-200 dark:bg-body-dark w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
@@ -28,7 +60,8 @@ export const Transf = () => {
 				<div className="flex flex-row mt-[10px] gap-[30px]">
 					<div className="flex flex-col">
 						<Input
-							value="1510-5"
+							id="o_branch"
+							value="0001"
 							className={'bg-input-readonly text-input-placeholder'}
 						></Input>
 						<p className="text-[11px] text-input-inactive font-normal leading-none p-[1px]">
@@ -37,7 +70,8 @@ export const Transf = () => {
 					</div>
 					<div>
 						<Input
-							value="95785-3"
+							id="o_account"
+							value="29904692-3"
 							className={'bg-input-readonly text-input-placeholder'}
 						></Input>
 						<p className="text-[11px] text-input-inactive font-normal leading-none p-[1px]">
@@ -51,6 +85,7 @@ export const Transf = () => {
 				<div className="flex flex-row mt-[10px] gap-[30px] justify-start">
 					<div className="flex flex-col">
 						<Input
+							id="d_branch"
 							className={'bg-input-base text-input-text w-[90px]'}
 							type={'number'}
 						></Input>
@@ -60,8 +95,9 @@ export const Transf = () => {
 					</div>
 					<div>
 						<Input
+							id="d_account"
 							className={'bg-input-base text-input-text w-[100px]'}
-							type={'number'}
+							type={'text'}
 						></Input>
 						<p className="text-[11px] text-input-inactive font-normal leading-none p-[1px]">
 							Conta
@@ -69,8 +105,9 @@ export const Transf = () => {
 					</div>
 				</div>
 				<div className="mt-[15px]">
-					<Input placeholder="Valor" type="number"></Input>
+					<Input id="amount" placeholder="Valor" type="number"></Input>
 					<Input
+						id="password"
 						placeholder="Senha"
 						type="password"
 						className="mt-[20px]"
