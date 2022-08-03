@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { Button, Input } from '../../../components/atoms';
 import Dashboard from '../../../components/atoms/Dashboard';
 import Modal from '../../../components/atoms/Modal/Index';
+import UserContext from '../../../providers/User';
 
 export const Deposit = () => {
 	const [isActive, setIsActive] = useState(false);
@@ -21,9 +22,6 @@ export const Deposit = () => {
 				document.getElementById('deposit_password') as HTMLInputElement
 			).value,
 		};
-
-		console.log(data);
-
 		const options = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
@@ -37,6 +35,12 @@ export const Deposit = () => {
 	const handleCloseModal = () => {
 		setIsActive((current) => !current);
 	};
+	useEffect(() => {
+
+	},[])
+	const [userState, setUserState] = useContext(UserContext);
+
+	console.log(userState[0].branch)
 
 	return (
 		<div className="bg-body-light-200 dark:bg-body-dark w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
@@ -54,7 +58,7 @@ export const Deposit = () => {
 					<div className="flex flex-col">
 						<Input
 							id="deposit_branch"
-							value="1510-5"
+							value={userState[0].branch}
 							className={'bg-input-readonly text-input-placeholder'}
 						></Input>
 						<p className="text-[11px] text-input-inactive font-normal leading-none p-[1px]">
@@ -64,7 +68,7 @@ export const Deposit = () => {
 					<div>
 						<Input
 							id="deposit_account"
-							value="95785-3"
+							value={userState[0].account_number}
 							className={'bg-input-readonly text-input-placeholder'}
 						></Input>
 						<p className="text-[11px] text-input-inactive font-normal leading-none p-[1px]">

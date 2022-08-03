@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import UserContext from '../../../providers/User';
 
 interface IDashboardProps {
 	children: React.ReactNode;
@@ -8,6 +9,7 @@ interface IDashboardProps {
 
 const Dashboard: React.FC<IDashboardProps> = ({ children, type = 'text' }) => {
 	const [inputType, setInputType] = useState('text');
+	const [userState, setUserState] = useContext(UserContext);
 
 	const handleClickHiddenValue = () => {
 		if (inputType === 'text') {
@@ -21,7 +23,7 @@ const Dashboard: React.FC<IDashboardProps> = ({ children, type = 'text' }) => {
 		<div className="w-[360px] h-[207px] text-white bg-brand-base rounded-b-[25px] mb-[40px]">
 			<div className="w-auto h-auto flex flex-row justify-between mt-[24px] mb-0 mx-[38px]">
 				<p className="text-[20px] font-medium my-auto mx-0">
-					Bem-vindo, {children}!
+					Bem-vindo, {userState[0].name}!
 				</p>
 				<Link to={'/profile'}>
 					<img
@@ -83,8 +85,8 @@ const Dashboard: React.FC<IDashboardProps> = ({ children, type = 'text' }) => {
 			</div>
 			<div className="w-[285px] h-[73px] bg-white shadow-md rounded-[10px] my-[0px] mx-auto p-[8px]">
 				<div className="text-header-gold text-[14px] font-medium flex flex-row justify-between my-0 mx-[17px]">
-					<p className="m-0">Agência: 1510-5</p>
-					<p className="m-0">Conta: 95785-3</p>
+					<p className="m-0">Agência:{userState[0].branch}</p>
+					<p className="m-0">Conta: {userState[0].account_number}</p>
 					<img className="m-0 w-[12px]" src="./src/assets/arrow.svg" alt="" />
 				</div>
 				<div className="flex flex-row justify-start gap-[6px] my-[10px] mx-[17px]">
@@ -97,7 +99,7 @@ const Dashboard: React.FC<IDashboardProps> = ({ children, type = 'text' }) => {
 					<input
 						type={inputType}
 						className="w-[130px] text-brand-base text-[24px] font-bold mt-auto mb-0 mx-0"
-						value={'132.759,30'}
+						value={userState[0].balance}
 						onChange={() => console.log('')}
 					></input>
 					<span className="text-brand-hover font-[14px] leading-none font-bold mt-auto mb-[2px] mx-0">

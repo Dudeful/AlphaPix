@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import Button from '../../../components/atoms/Button';
 import Dashboard from '../../../components/atoms/Dashboard';
 import Input from '../../../components/atoms/Input';
 import Modal from '../../../components/atoms/Modal/Index';
+import UserContext from '../../../providers/User';
 
 export const Withdraw = () => {
 	const [isActive, setIsActive] = useState(false);
-
+	const [userState, setUserState] = useContext(UserContext)
 	const handleWithdraw = () => {
 		console.log('entrou');
 		setIsActive((current) => !current);
@@ -27,7 +28,7 @@ export const Withdraw = () => {
 				<div className="flex flex-row mt-[10px] gap-[30px]">
 					<div className="flex flex-col">
 						<Input
-							value="1510-5"
+							value={userState[0].branch}
 							className={'bg-input-readonly text-input-placeholder'}
 						></Input>
 						<p className="text-[11px] text-input-inactive font-normal leading-none p-[1px]">
@@ -36,7 +37,7 @@ export const Withdraw = () => {
 					</div>
 					<div>
 						<Input
-							value="95785-3"
+							value={userState[0].account_number}
 							className={'bg-input-readonly text-input-placeholder'}
 						></Input>
 						<p className="text-[11px] text-input-inactive font-normal leading-none p-[1px]">

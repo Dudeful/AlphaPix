@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { DashboardHoc } from '../../../components/organisms';
 import { Dashboard } from '../../../components/atoms';
 import { DailyStatement } from '../../../components/molecules';
+import UserContext from '../../../providers/User';
 
 const DashboardExtract = DashboardHoc(Dashboard);
 
@@ -52,7 +53,7 @@ export const Extract: React.FC = () => {
 			})
 			.catch((error) => console.error(error.message));
 	}, []);
-
+	
 	return (
 		<div className="bg-body-light-200 dark:bg-body-dark w-sm h-lg pb-7 flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
 			<DashboardExtract children={'Cheetan'} />

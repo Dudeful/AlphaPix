@@ -1,12 +1,16 @@
-import React, { createContext, PropsWithChildren } from 'react';
+import { createContext, PropsWithChildren, useState } from "react";
 
-export const UserContext = createContext({});
 
-export const UserProvider: React.FC<PropsWithChildren> = ({ children }) => {
-	const user = {
-		account: 'account-test',
-		agency: 'agency-test',
-	};
+const UserContext = createContext({});
 
-	return <UserContext.Provider value={user}>{children}</UserContext.Provider>;
+const UserContextProvider:React.FC  =({ children }:PropsWithChildren) => {
+    const [userState, setUserState] = useState({});
+  return (
+    <UserContext.Provider value={[ userState, setUserState ]}>
+      {children}
+    </UserContext.Provider>
+  );    
 };
+
+export { UserContextProvider };
+export default UserContext
