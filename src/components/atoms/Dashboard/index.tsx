@@ -84,7 +84,7 @@ const Dashboard: React.FC<IDashboardProps> = ({ children, type = 'text' }) => {
 				</div>
 			</div>
 			<div className="w-[285px] h-[73px] bg-white shadow-md rounded-[10px] my-[0px] mx-auto p-[8px]">
-				<div className="text-header-gold text-[14px] font-medium flex flex-row justify-between my-0 mx-[17px]">
+				<div className="text-header-gold text-[14px] font-medium flex flex-row justify-between my-0 mx-[10px]">
 					<p className="m-0">Agência:{userState[0].branch}</p>
 					<p className="m-0">Conta: {userState[0].account_number}</p>
 					<img className="m-0 w-[12px]" src="./src/assets/arrow.svg" alt="" />
@@ -98,7 +98,7 @@ const Dashboard: React.FC<IDashboardProps> = ({ children, type = 'text' }) => {
 					/>
 					<input
 						type={inputType}
-						className="w-[130px] text-brand-base text-[24px] font-bold mt-auto mb-0 mx-0"
+						className="w-[120px] text-brand-base text-[24px] font-bold mt-auto mb-0 mx-0"
 						value={userState[0].balance}
 						onChange={() => console.log('')}
 					></input>
