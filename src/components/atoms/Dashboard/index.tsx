@@ -8,7 +8,7 @@ interface IDashboardProps {
 }
 
 const Dashboard: React.FC<IDashboardProps> = ({ children, type = 'text' }) => {
-	const [inputType, setInputType] = useState('text');
+	const [inputType, setInputType] = useState('password');
 	const [userState, setUserState] = useContext(UserContext);
 
 	const handleClickHiddenValue = () => {
