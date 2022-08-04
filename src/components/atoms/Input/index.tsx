@@ -6,7 +6,7 @@ interface IInputRegisterProps {
 	type?: string;
 	inputHandler?: (e: React.FormEvent<HTMLInputElement>) => void;
 	className?: string;
-	id: string;
+	id?: string;
 }
 
 const Input: React.FC<IInputRegisterProps> = ({

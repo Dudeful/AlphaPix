@@ -3,11 +3,16 @@ import Button from '../Button';
 
 interface IModalProps {
 	handleClose: () => void;
+	handleConfirm?: () => void;
 	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 	showModal: boolean;
 }
 
-const Modal: React.FC<IModalProps> = ({ handleClose, showModal }) => {
+const Modal: React.FC<IModalProps> = ({
+	handleClose,
+	showModal,
+	handleConfirm,
+}) => {
 	return (
 		<>
 			{showModal ? (
@@ -33,7 +38,12 @@ const Modal: React.FC<IModalProps> = ({ handleClose, showModal }) => {
 						>
 							Cancelar
 						</Button>
-						<Button className="bg-btn-primary-base w-[108px]">Confirmar</Button>
+						<Button
+							onClick={handleConfirm}
+							className="bg-btn-primary-base w-[108px]"
+						>
+							Confirmar
+						</Button>
 					</div>
 				</div>
 			) : (

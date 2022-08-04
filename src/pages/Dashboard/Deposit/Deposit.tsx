@@ -31,8 +31,8 @@ export const Deposit = () => {
 		};
 
 		fetch('http://gcp.dudeful.com:5000/register-deposit', options)
-			.then((res) => res.json)
-			.then((data) => {
+			.then((res) => res.json())
+			.then((res) => {
 				getData(userState[0].cpf).then((data) => {
 					setUserState(data);
 				});
