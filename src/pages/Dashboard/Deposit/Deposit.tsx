@@ -3,9 +3,11 @@ import { Button, Input } from '../../../components/atoms';
 import Dashboard from '../../../components/atoms/Dashboard';
 import Modal from '../../../components/atoms/Modal/Index';
 import UserContext from '../../../providers/User';
+import { getData } from '../../../service/getdata';
 
 export const Deposit = () => {
 	const [isActive, setIsActive] = useState(false);
+	const [userState, setUserState] = useContext(UserContext);
 
 	const handleDeposit = () => {
 		const data = {
@@ -28,19 +30,22 @@ export const Deposit = () => {
 			body: JSON.stringify({ data }),
 		};
 
-		fetch('http://gcp.dudeful.com:5000/register-transfer', options);
+		fetch('http://gcp.dudeful.com:5000/register-deposit', options)
+			.then((res) => res.json)
+			.then((data) => {
+				getData(userState[0].cpf).then((data) => {
+					setUserState(data);
+				});
+			})
+			.catch((error) => console.error(error));
 
 		setIsActive((current) => !current);
 	};
 	const handleCloseModal = () => {
 		setIsActive((current) => !current);
 	};
-	useEffect(() => {
 
-	},[])
-	const [userState, setUserState] = useContext(UserContext);
-
-	console.log(userState[0].branch)
+	console.log(userState[0].branch);
 
 	return (
 		<div className="bg-body-light-200 dark:bg-body-dark w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
