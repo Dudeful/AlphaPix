@@ -100,7 +100,7 @@ const Dashboard: React.FC<IDashboardProps> = ({ children, type = 'text' }) => {
 						disabled
 						type={inputType}
 						className={`w-[100px] text-brand-base text-[24px] font-bold mt-auto mb-0 mx-0`}
-						value={userState[0].balance}
+						value={userState[0].balance || '0.00'}
 					></input>
 					<span className="text-brand-hover font-[14px] leading-none font-bold mt-auto mb-[2px] mx-0">
 						R$

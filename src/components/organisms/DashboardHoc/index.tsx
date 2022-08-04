@@ -1,15 +1,9 @@
-import React, { ComponentType, useEffect, useState } from 'react';
-import { DepositDashboardType } from '../../../@types/hocs';
+import React, { ComponentType, useState } from 'react';
 
 function DashboardHoc<T>(Component: ComponentType<T>) {
 	return (hocProps: T) => {
 		const [agency, setAgency] = useState('');
 		const [accountNumber, setAccountNumber] = useState('');
-
-		useEffect(() => {
-			console.log('agency', agency);
-			console.log('account', accountNumber);
-		}, [agency, accountNumber]);
 
 		return (
 			<Component

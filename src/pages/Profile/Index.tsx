@@ -5,9 +5,12 @@ import UserContext from '../../providers/User';
 export const Profile = () => {
 	const [userState, setUserState] = useContext(UserContext);
 
+	console.log(userState);
+
 	function getFormatedDate(dateValue: Date) {
 		let date = new Date(dateValue);
-		let datestr = `${date.getUTCDate()}/${date.getMonth()}/${date.getFullYear()}`;
+		// let datestr = `${date.getUTCDate()}/${date.getUTCMonth()}/${date.getFullYear()}`;
+		let datestr = `${date.toLocaleDateString('pt-BR')}`;
 		return datestr;
 	}
 

@@ -14,13 +14,6 @@ export const Login = () => {
 	const handleLogin = () => {
 		navigate('/deposit', { replace: true });
 	};
-	const passwordHandler = (e: React.FormEvent<HTMLInputElement>) => {
-		setPassword(e.currentTarget.value);
-	};
-
-	const cpfHandler = (e: React.FormEvent<HTMLInputElement>) => {
-		setCpf(e.currentTarget.value);
-	};
 
 	useEffect(() => {
 		const password = (
@@ -42,13 +35,17 @@ export const Login = () => {
 					id="login_cpf"
 					placeholder="Digite seu CPF"
 					type="text"
-					inputHandler={cpfHandler}
+					inputHandler={(e: React.FormEvent<HTMLInputElement>) => {
+						setCpf(e.currentTarget.value);
+					}}
 				/>
 				<Input
 					id="login_password"
 					placeholder="Digite sua senha"
 					type="password"
-					inputHandler={passwordHandler}
+					inputHandler={(e: React.FormEvent<HTMLInputElement>) => {
+						setPassword(e.currentTarget.value);
+					}}
 				/>
 				<Button type="button" onClick={handleLogin}>
 					Entrar

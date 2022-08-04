@@ -20,7 +20,6 @@ export const Extract: React.FC = () => {
 	});
 
 	useEffect(() => {
-		console.log(userState);
 		fetch(
 			`http://gcp.dudeful.com:5000/statements?all=true&branch=${userState[0].branch}&account=${userState[0].account_number}&password=${userState[0].password}`
 		)
@@ -46,10 +45,6 @@ export const Extract: React.FC = () => {
 				});
 
 				setStatement({
-					transactions,
-					account_details: data.account_details,
-				});
-				console.log({
 					transactions,
 					account_details: data.account_details,
 				});

@@ -28,12 +28,12 @@ export const Withdraw = () => {
 	};
 
 	const handleWithdraw = () => {
-		console.log({ data });
 		fetch('http://gcp.dudeful.com:5000/register-withdraw', options)
 			.then((res) => res.json())
 			.then((res) => {
 				console.log(res);
 				getData(userState[0].cpf).then((data) => {
+					data[0].password = userState[0].password;
 					setUserState(data);
 				});
 

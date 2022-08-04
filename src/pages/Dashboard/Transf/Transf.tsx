@@ -10,18 +10,18 @@ export const Transf = () => {
 	const [isActive, setIsActive] = useState(false);
 	const [amount, setAmount] = useState('');
 	const [password, setPassword] = useState('');
+	const [branch, setBranch] = useState('');
+	const [account, setAccount] = useState('');
 
 	const handleTransfer = () => {
 		const data = {
 			origin: {
-				branch: (document.getElementById('o_branch') as HTMLInputElement).value,
-				account: (document.getElementById('o_account') as HTMLInputElement)
-					.value,
+				branch: userState[0].branch,
+				account: userState[0].account_number,
 			},
 			destination: {
-				branch: (document.getElementById('d_branch') as HTMLInputElement).value,
-				account: (document.getElementById('d_account') as HTMLInputElement)
-					.value,
+				branch,
+				account,
 			},
 			amount,
 			password,
@@ -39,6 +39,7 @@ export const Transf = () => {
 				console.log(res);
 
 				getData(userState[0].cpf).then((data) => {
+					data[0].password = userState[0].password;
 					setUserState(data);
 				});
 			})
@@ -46,6 +47,8 @@ export const Transf = () => {
 
 		setAmount('');
 		setPassword('');
+		setBranch('');
+		setAccount('');
 		handleCloseModal();
 	};
 
@@ -94,7 +97,9 @@ export const Transf = () => {
 				<div className="flex flex-row mt-[10px] gap-[30px] justify-start">
 					<div className="flex flex-col">
 						<Input
-							id="d_branch"
+							inputHandler={(e: React.FormEvent<HTMLInputElement>) =>
+								setBranch(e.currentTarget.value)
+							}
 							className={'bg-input-base text-input-text w-[90px]'}
 							type={'number'}
 						></Input>
@@ -104,7 +109,9 @@ export const Transf = () => {
 					</div>
 					<div>
 						<Input
-							id="d_account"
+							inputHandler={(e: React.FormEvent<HTMLInputElement>) =>
+								setAccount(e.currentTarget.value)
+							}
 							className={'bg-input-base text-input-text w-[100px]'}
 							type={'text'}
 						></Input>
@@ -115,6 +122,7 @@ export const Transf = () => {
 				</div>
 				<div className="mt-[15px]">
 					<Input
+						value={amount}
 						inputHandler={(e: React.FormEvent<HTMLInputElement>) =>
 							setAmount(e.currentTarget.value)
 						}
@@ -125,6 +133,7 @@ export const Transf = () => {
 						inputHandler={(e: React.FormEvent<HTMLInputElement>) =>
 							setPassword(e.currentTarget.value)
 						}
+						value={password}
 						placeholder="Senha"
 						type="password"
 						className="mt-[20px]"

@@ -33,7 +33,9 @@ export const Deposit = () => {
 		fetch('http://gcp.dudeful.com:5000/register-deposit', options)
 			.then((res) => res.json())
 			.then((res) => {
+				console.log(res);
 				getData(userState[0].cpf).then((data) => {
+					data[0].password = userState[0].password;
 					setUserState(data);
 				});
 			})
@@ -46,8 +48,6 @@ export const Deposit = () => {
 	const handleCloseModal = () => {
 		setIsActive((current) => !current);
 	};
-
-	console.log(userState[0].branch);
 
 	return (
 		<div className="bg-body-light-200 dark:bg-body-dark w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
@@ -88,6 +88,7 @@ export const Deposit = () => {
 						inputHandler={(e: React.FormEvent<HTMLInputElement>) =>
 							setAmount(e.currentTarget.value)
 						}
+						value={amount}
 						placeholder="Valor"
 						type="number"
 					></Input>
@@ -97,6 +98,7 @@ export const Deposit = () => {
 						}
 						placeholder="Senha"
 						type="password"
+						value={password}
 						className="mt-[20px]"
 					></Input>
 					<Button
