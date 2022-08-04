@@ -12,14 +12,17 @@ type IStatement = {
 };
 
 export const Extract: React.FC = () => {
+	const [userState, setUserState] = useContext(UserContext);
+
 	const [statement, setStatement] = useState<IStatement>({
 		transactions: [],
 		account_details: {},
 	});
 
 	useEffect(() => {
+		console.log(userState);
 		fetch(
-			'http://gcp.dudeful.com:5000/statements?all=true&branch=0001&account=80258956-1&password=hellofriend'
+			`http://gcp.dudeful.com:5000/statements?all=true&branch=${userState[0].branch}&account=${userState[0].account_number}&password=${userState[0].password}`
 		)
 			.then((res) => res.json())
 			.then((data) => {
@@ -53,7 +56,7 @@ export const Extract: React.FC = () => {
 			})
 			.catch((error) => console.error(error.message));
 	}, []);
-	
+
 	return (
 		<div className="bg-body-light-200 dark:bg-body-dark w-sm h-lg pb-7 flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
 			<DashboardExtract children={'Cheetan'} />

@@ -1,9 +1,12 @@
-import { FormEvent, useState } from 'react';
+import { FormEvent, useState, useContext, useEffect } from 'react';
 import { Button, Input } from '../../../components/atoms';
 import Dashboard from '../../../components/atoms/Dashboard';
 import Modal from '../../../components/atoms/Modal/Index';
+import UserContext from '../../../providers/User';
+import { getData } from '../../../service/getdata';
 
 export const Transf = () => {
+	const [userState, setUserState] = useContext(UserContext);
 	const [isActive, setIsActive] = useState(false);
 
 	const handleTransfer = () => {
@@ -22,8 +25,6 @@ export const Transf = () => {
 			password: (document.getElementById('password') as HTMLInputElement).value,
 		};
 
-		console.log(data);
-
 		const options = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
@@ -33,7 +34,11 @@ export const Transf = () => {
 		fetch('http://gcp.dudeful.com:5000/register-transfer', options)
 			.then((res) => res.json())
 			.then((res) => {
-				console.log(res.data);
+				console.log(res);
+
+				getData(userState[0].cpf).then((data) => {
+					setUserState(data);
+				});
 			})
 			.catch((error) => console.error(error));
 
@@ -61,7 +66,7 @@ export const Transf = () => {
 					<div className="flex flex-col">
 						<Input
 							id="o_branch"
-							value="0001"
+							value={userState[0].branch}
 							className={'bg-input-readonly text-input-placeholder'}
 						></Input>
 						<p className="text-[11px] text-input-inactive font-normal leading-none p-[1px]">
@@ -71,7 +76,7 @@ export const Transf = () => {
 					<div>
 						<Input
 							id="o_account"
-							value="29904692-3"
+							value={userState[0].account_number}
 							className={'bg-input-readonly text-input-placeholder'}
 						></Input>
 						<p className="text-[11px] text-input-inactive font-normal leading-none p-[1px]">
