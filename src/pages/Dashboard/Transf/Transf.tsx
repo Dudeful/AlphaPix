@@ -1,4 +1,4 @@
-import { FormEvent, useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import { Button, Input } from '../../../components/atoms';
 import Dashboard from '../../../components/atoms/Dashboard';
 import Modal from '../../../components/atoms/Modal/Index';
@@ -8,6 +8,8 @@ import { getData } from '../../../service/getdata';
 export const Transf = () => {
 	const [userState, setUserState] = useContext(UserContext);
 	const [isActive, setIsActive] = useState(false);
+	const [amount, setAmount] = useState('');
+	const [password, setPassword] = useState('');
 
 	const handleTransfer = () => {
 		const data = {
@@ -21,8 +23,8 @@ export const Transf = () => {
 				account: (document.getElementById('d_account') as HTMLInputElement)
 					.value,
 			},
-			amount: (document.getElementById('amount') as HTMLInputElement).value,
-			password: (document.getElementById('password') as HTMLInputElement).value,
+			amount,
+			password,
 		};
 
 		const options = {
@@ -42,7 +44,9 @@ export const Transf = () => {
 			})
 			.catch((error) => console.error(error));
 
-		// setIsActive((current) => !current);
+		setAmount('');
+		setPassword('');
+		handleCloseModal();
 	};
 
 	const handleCloseModal = () => {
@@ -110,22 +114,34 @@ export const Transf = () => {
 					</div>
 				</div>
 				<div className="mt-[15px]">
-					<Input id="amount" placeholder="Valor" type="number"></Input>
 					<Input
-						id="password"
+						inputHandler={(e: React.FormEvent<HTMLInputElement>) =>
+							setAmount(e.currentTarget.value)
+						}
+						placeholder="Valor"
+						type="number"
+					></Input>
+					<Input
+						inputHandler={(e: React.FormEvent<HTMLInputElement>) =>
+							setPassword(e.currentTarget.value)
+						}
 						placeholder="Senha"
 						type="password"
 						className="mt-[20px]"
 					></Input>
 					<Button
 						className="mt-[15px] bg-btn-primary-base"
-						onClick={handleTransfer}
+						onClick={handleCloseModal}
 					>
 						Transferir
 					</Button>
 				</div>
 			</div>
-			<Modal showModal={isActive} handleClose={handleCloseModal}></Modal>
+			<Modal
+				showModal={isActive}
+				handleClose={handleCloseModal}
+				handleConfirm={handleTransfer}
+			></Modal>
 		</div>
 	);
 };

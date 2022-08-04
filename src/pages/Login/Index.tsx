@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button, Input } from '../../components/atoms';
 import { getData } from '../../service/getdata';
 import UserContext from '../../providers/User';
@@ -9,7 +9,11 @@ export const Login = () => {
 	const [cpf, setCpf] = useState('');
 	const [password, setPassword] = useState('');
 
-	const handleLogin = () => {};
+	let navigate = useNavigate();
+
+	const handleLogin = () => {
+		navigate('/deposit', { replace: true });
+	};
 	const passwordHandler = (e: React.FormEvent<HTMLInputElement>) => {
 		setPassword(e.currentTarget.value);
 	};
@@ -26,7 +30,6 @@ export const Login = () => {
 			data[0].password = password;
 			setUserState(data);
 		});
-		console.log(cpf);
 	}, [cpf, password]);
 	return (
 		<div className="bg-body-light-200 dark:bg-body-dark w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
@@ -47,11 +50,9 @@ export const Login = () => {
 					type="password"
 					inputHandler={passwordHandler}
 				/>
-				<Link to={'/Deposit'}>
-					<Button type="button" onClick={handleLogin}>
-						Entrar
-					</Button>
-				</Link>
+				<Button type="button" onClick={handleLogin}>
+					Entrar
+				</Button>
 			</form>
 			<Link
 				className="font-normal text-sm text-paragraph-dark dark:text-paragraph-light-100"

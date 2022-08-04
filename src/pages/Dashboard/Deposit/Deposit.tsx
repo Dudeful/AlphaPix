@@ -8,6 +8,8 @@ import { getData } from '../../../service/getdata';
 export const Deposit = () => {
 	const [isActive, setIsActive] = useState(false);
 	const [userState, setUserState] = useContext(UserContext);
+	const [amount, setAmount] = useState('');
+	const [password, setPassword] = useState('');
 
 	const handleDeposit = () => {
 		const data = {
@@ -18,12 +20,10 @@ export const Deposit = () => {
 					document.getElementById('deposit_account') as HTMLInputElement
 				).value,
 			},
-			amount: (document.getElementById('deposit_amount') as HTMLInputElement)
-				.value,
-			password: (
-				document.getElementById('deposit_password') as HTMLInputElement
-			).value,
+			amount,
+			password,
 		};
+
 		const options = {
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
@@ -39,7 +39,9 @@ export const Deposit = () => {
 			})
 			.catch((error) => console.error(error));
 
-		setIsActive((current) => !current);
+		setAmount('');
+		setPassword('');
+		handleCloseModal();
 	};
 	const handleCloseModal = () => {
 		setIsActive((current) => !current);
@@ -82,22 +84,34 @@ export const Deposit = () => {
 					</div>
 				</div>
 				<div className="mt-[15px]">
-					<Input id="deposit_amount" placeholder="Valor" type="number"></Input>
 					<Input
-						id="deposit_password"
+						inputHandler={(e: React.FormEvent<HTMLInputElement>) =>
+							setAmount(e.currentTarget.value)
+						}
+						placeholder="Valor"
+						type="number"
+					></Input>
+					<Input
+						inputHandler={(e: React.FormEvent<HTMLInputElement>) =>
+							setPassword(e.currentTarget.value)
+						}
 						placeholder="Senha"
 						type="password"
 						className="mt-[20px]"
 					></Input>
 					<Button
 						className="mt-[15px] bg-btn-primary-base"
-						onClick={handleDeposit}
+						onClick={handleCloseModal}
 					>
 						Depositar
 					</Button>
 				</div>
 			</div>
-			<Modal showModal={isActive} handleClose={handleCloseModal}></Modal>
+			<Modal
+				showModal={isActive}
+				handleClose={handleCloseModal}
+				handleConfirm={handleDeposit}
+			></Modal>
 		</div>
 	);
 };
