@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button, Input } from '../../components/atoms';
 import { getData } from '../../service/getdata';
 import UserContext from '../../providers/User';
@@ -9,13 +9,10 @@ export const Login = () => {
 	const [cpf, setCpf] = useState('');
 	const [password, setPassword] = useState('');
 
-	const handleLogin = () => {};
-	const passwordHandler = (e: React.FormEvent<HTMLInputElement>) => {
-		setPassword(e.currentTarget.value);
-	};
+	let navigate = useNavigate();
 
-	const cpfHandler = (e: React.FormEvent<HTMLInputElement>) => {
-		setCpf(e.currentTarget.value);
+	const handleLogin = () => {
+		navigate('/deposit', { replace: true });
 	};
 
 	useEffect(() => {
@@ -26,7 +23,6 @@ export const Login = () => {
 			data[0].password = password;
 			setUserState(data);
 		});
-		console.log(cpf);
 	}, [cpf, password]);
 	return (
 		<div className="bg-body-light-200 dark:bg-body-dark w-sm h-sm flex flex-col justify-start items-center mx-auto min-h-min my-[20px]">
@@ -39,19 +35,21 @@ export const Login = () => {
 					id="login_cpf"
 					placeholder="Digite seu CPF"
 					type="text"
-					inputHandler={cpfHandler}
+					inputHandler={(e: React.FormEvent<HTMLInputElement>) => {
+						setCpf(e.currentTarget.value);
+					}}
 				/>
 				<Input
 					id="login_password"
 					placeholder="Digite sua senha"
 					type="password"
-					inputHandler={passwordHandler}
+					inputHandler={(e: React.FormEvent<HTMLInputElement>) => {
+						setPassword(e.currentTarget.value);
+					}}
 				/>
-				<Link to={'/Deposit'}>
-					<Button type="button" onClick={handleLogin}>
-						Entrar
-					</Button>
-				</Link>
+				<Button type="button" onClick={handleLogin}>
+					Entrar
+				</Button>
 			</form>
 			<Link
 				className="font-normal text-sm text-paragraph-dark dark:text-paragraph-light-100"

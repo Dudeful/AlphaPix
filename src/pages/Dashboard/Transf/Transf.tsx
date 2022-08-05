@@ -1,4 +1,4 @@
-import { FormEvent, useState, useContext, useEffect } from 'react';
+import { useState, useContext } from 'react';
 import { Button, Input } from '../../../components/atoms';
 import Dashboard from '../../../components/atoms/Dashboard';
 import Modal from '../../../components/atoms/Modal/Index';
@@ -8,21 +8,23 @@ import { getData } from '../../../service/getdata';
 export const Transf = () => {
 	const [userState, setUserState] = useContext(UserContext);
 	const [isActive, setIsActive] = useState(false);
+	const [amount, setAmount] = useState('');
+	const [password, setPassword] = useState('');
+	const [branch, setBranch] = useState('');
+	const [account, setAccount] = useState('');
 
 	const handleTransfer = () => {
 		const data = {
 			origin: {
-				branch: (document.getElementById('o_branch') as HTMLInputElement).value,
-				account: (document.getElementById('o_account') as HTMLInputElement)
-					.value,
+				branch: userState[0].branch,
+				account: userState[0].account_number,
 			},
 			destination: {
-				branch: (document.getElementById('d_branch') as HTMLInputElement).value,
-				account: (document.getElementById('d_account') as HTMLInputElement)
-					.value,
+				branch,
+				account,
 			},
-			amount: (document.getElementById('amount') as HTMLInputElement).value,
-			password: (document.getElementById('password') as HTMLInputElement).value,
+			amount,
+			password,
 		};
 
 		const options = {
@@ -37,12 +39,17 @@ export const Transf = () => {
 				console.log(res);
 
 				getData(userState[0].cpf).then((data) => {
+					data[0].password = userState[0].password;
 					setUserState(data);
 				});
 			})
 			.catch((error) => console.error(error));
 
-		// setIsActive((current) => !current);
+		setAmount('');
+		setPassword('');
+		setBranch('');
+		setAccount('');
+		handleCloseModal();
 	};
 
 	const handleCloseModal = () => {
@@ -90,7 +97,9 @@ export const Transf = () => {
 				<div className="flex flex-row mt-[10px] gap-[30px] justify-start">
 					<div className="flex flex-col">
 						<Input
-							id="d_branch"
+							inputHandler={(e: React.FormEvent<HTMLInputElement>) =>
+								setBranch(e.currentTarget.value)
+							}
 							className={'bg-input-base text-input-text w-[90px]'}
 							type={'number'}
 						></Input>
@@ -100,7 +109,9 @@ export const Transf = () => {
 					</div>
 					<div>
 						<Input
-							id="d_account"
+							inputHandler={(e: React.FormEvent<HTMLInputElement>) =>
+								setAccount(e.currentTarget.value)
+							}
 							className={'bg-input-base text-input-text w-[100px]'}
 							type={'text'}
 						></Input>
@@ -110,22 +121,36 @@ export const Transf = () => {
 					</div>
 				</div>
 				<div className="mt-[15px]">
-					<Input id="amount" placeholder="Valor" type="number"></Input>
 					<Input
-						id="password"
+						value={amount}
+						inputHandler={(e: React.FormEvent<HTMLInputElement>) =>
+							setAmount(e.currentTarget.value)
+						}
+						placeholder="Valor"
+						type="number"
+					></Input>
+					<Input
+						inputHandler={(e: React.FormEvent<HTMLInputElement>) =>
+							setPassword(e.currentTarget.value)
+						}
+						value={password}
 						placeholder="Senha"
 						type="password"
 						className="mt-[20px]"
 					></Input>
 					<Button
 						className="mt-[15px] bg-btn-primary-base"
-						onClick={handleTransfer}
+						onClick={handleCloseModal}
 					>
 						Transferir
 					</Button>
 				</div>
 			</div>
-			<Modal showModal={isActive} handleClose={handleCloseModal}></Modal>
+			<Modal
+				showModal={isActive}
+				handleClose={handleCloseModal}
+				handleConfirm={handleTransfer}
+			></Modal>
 		</div>
 	);
 };
